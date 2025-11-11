@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Progress
 
-## Getting Started
+My Progress is a personal dashboard for tracking my own development progress. It's built to help me log daily wins, stay focused on long-term goals with a visible countdown, and visualize milestone progress.
 
-First, run the development server:
+## Purpose
+
+- Personal progress tracking: keep short daily notes of meaningful work.
+- Focus and context: a countdown toward a target date to help create urgency and clarity.
+- Visual milestones: a simple study journey map to mark where meaningful work happened.
+
+This project is intentionally personal — it's tailored as a development and habit-tracking sandbox for my own growth.
+
+## Why I built this
+
+- To reinforce productive routines through daily logging and gentle reminders.
+- To make long-term goals feel more tangible via a countdown and progress indicators.
+- To experiment with UI/UX patterns (color accessibility, theme handling, and component design) while keeping the interface clean and minimal.
+
+## Key features
+
+- Daily progress log: write short entries and review them later.
+- Productivity countdown: a live countdown to a target date (currently set to November 11, 2026 in code).
+- Study journey: simple map-based markers for milestones or notable locations.
+- Theme handling: focused on a polished light theme; dark mode is intentionally gated behind a "Not updated yet" UX to avoid accidental usage until fully implemented.
+
+## Tech stack
+
+- Next.js (App Router)
+- React + TypeScript
+- Tailwind CSS
+- pnpm
+
+## Run locally
+
+1. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Start development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Open http://localhost:3000
 
-## Learn More
+Production build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy (recommended)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Use Vercel for the easiest Next.js deployments. Suggested settings on Vercel import:
 
-## Deploy on Vercel
+- Install Command: `pnpm install --frozen-lockfile`
+- Build Command: `pnpm build`
+- Output Directory: (leave blank — use Next.js default)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Vercel will generate preview deployments for branches/PRs (useful to review `autopilot/darkmode-updates` before merging to `main`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing (personal project)
+
+This repository is primarily for my personal development. If you'd like to suggest changes, please open an issue or a pull request — I'll review contributions selectively.
+
+## License
+
+No license is set for this project. Add a `LICENSE` file if you want to grant reuse rights.
+
+---
+If you'd like a shorter summary or a translated README, tell me which format and I can add it.
