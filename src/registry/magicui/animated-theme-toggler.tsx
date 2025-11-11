@@ -12,6 +12,7 @@ export function AnimatedThemeToggler({
 }) {
   const { theme, setTheme } = useTheme();
   const [isMounted, setIsMounted] = React.useState(false);
+  const [showNotUpdated, setShowNotUpdated] = React.useState(false);
 
   React.useEffect(() => {
     setIsMounted(true);
@@ -20,11 +21,20 @@ export function AnimatedThemeToggler({
   const isDark = theme === "dark";
 
   const toggleTheme = () => {
-    setTheme(isDark ? "light" : "dark");
+    // If user wants to switch to dark mode (i.e. currently not dark), show a "Not updated yet" overlay
+    // instead of enabling dark mode for now.
+    if (!isDark) {
+      setShowNotUpdated(true);
+      return;
+    }
+
+    // If currently dark, allow switching back to light
+    setTheme("light");
   };
 
   return (
-    <button
+    <>
+      <button
       type="button"
       onClick={toggleTheme}
       className={cn(
@@ -47,6 +57,31 @@ export function AnimatedThemeToggler({
       >
         {isMounted && (isDark ? <MoonStar size={16} /> : <Sun size={16} />)}
       </span>
-    </button>
+      </button>
+      {showNotUpdated ? (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Not updated yet"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+        >
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowNotUpdated(false)}
+          />
+          <div className="relative z-10 mx-4 w-full max-w-md rounded-2xl bg-white/10 p-8 text-center text-cream-50 backdrop-blur-md">
+            <h3 className="mb-2 text-lg font-semibold">Not updated yet</h3>
+            <p className="mb-6 text-sm">Dark mode toggle is not updated yet.</p>
+            <button
+              type="button"
+              onClick={() => setShowNotUpdated(false)}
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-caramel-500 px-4 py-2 text-sm font-semibold text-cream-50 shadow-md"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }

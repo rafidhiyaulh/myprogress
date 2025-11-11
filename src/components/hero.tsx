@@ -11,7 +11,7 @@ const heroReminders = [
   },
   {
     title: "Meaningful",
-    description: "Choose actions that bring you closer to the March 31, 2026 goal.",
+    description: "Choose actions that bring you closer to the November 11, 2026 goal.",
   },
   {
     title: "Intentional",
@@ -42,8 +42,8 @@ export function Hero({ className }: { className?: string }) {
           <h1 className="max-w-2xl text-4xl font-semibold text-foreground dark:text-cream-200 sm:text-5xl lg:text-6xl">
             Productivity Timer
           </h1>
-          <p className="max-w-xl text-base text-taupe-500 dark:text-cream-300/80">
-            Try to focus until this date, starting from 2 November 2025.
+          <p className="max-w-xl text-base text-taupe-500 dark:text-cream-100">
+            Log Activity to Focus from 11 November 2025
           </p>
         </div>
         <div className="glass-panel relative w-full max-w-sm self-center rounded-[32px] border-none bg-white/70 p-6 text-left shadow-lg dark:bg-[#362821]/75">
@@ -59,7 +59,7 @@ export function Hero({ className }: { className?: string }) {
                 <p className="text-sm font-semibold text-foreground dark:text-cream-100">
                   {item.title}
                 </p>
-                <p className="mt-1 text-sm text-taupe-500 dark:text-cream-200/80">
+                <p className="mt-1 text-sm text-taupe-500 dark:text-cream-100">
                   {item.description}
                 </p>
               </li>
