@@ -1,5 +1,3 @@
-# My Progress
-
 My Progress is a personal dashboard for tracking my own development progress. It's built to help me log daily wins, stay focused on long-term goals with a visible countdown, and visualize milestone progress.
 
 ## The Purpose
@@ -52,24 +50,3 @@ Production build:
 pnpm build
 pnpm start
 ```
-
-## Deploy (recommended)
-
-Use Vercel for the easiest Next.js deployments. Suggested settings on Vercel import:
-
-- Install Command: `pnpm install --frozen-lockfile`
-- Build Command: `pnpm build`
-- Output Directory: (leave blank — use Next.js default)
-
-Vercel will generate preview deployments for branches/PRs (useful to review `autopilot/darkmode-updates` before merging to `main`).
-
-## Contributing (personal project)
-
-This repository is primarily for my personal development. If you'd like to suggest changes, please open an issue or a pull request — I'll review contributions selectively.
-
-## License
-
-No license is set for this project. Add a `LICENSE` file if you want to grant reuse rights.
-
----
-If you'd like a shorter summary or a translated README, tell me which format and I can add it.
