@@ -13,7 +13,7 @@ type TimeParts = {
   seconds: number;
 };
 
-const TARGET_DATE = new Date("2026-03-31T00:00:00+07:00");
+const TARGET_DATE = new Date("2026-11-11T00:00:00+07:00");
 const TIMEZONE = "Asia/Jakarta";
 
 function getTimeParts(now: Date): TimeParts {
@@ -46,6 +46,8 @@ export function CountdownTimer({
   className?: string;
 }) {
   const [now, setNow] = React.useState(() => new Date());
+  // Capture the start time when the component mounts so progress starts from "now"
+  const [startDate] = React.useState(() => new Date());
   const [parts, setParts] = React.useState(() => getTimeParts(new Date()));
   const [mounted, setMounted] = React.useState(false);
 
@@ -74,11 +76,12 @@ export function CountdownTimer({
     { label: "Seconds", value: parts.seconds },
   ];
 
-  const totalDuration = TARGET_DATE.getTime() - new Date("2025-11-02T00:00:00+07:00").getTime();
-  const progress = Math.min(
-    100,
-    Math.max(0, ((totalDuration - parts.total) / totalDuration) * 100)
-  );
+  // Use the captured startDate so the progress begins from the moment the component was mounted.
+  const totalDuration = Math.max(TARGET_DATE.getTime() - startDate.getTime(), 0);
+  const elapsed = Math.max(now.getTime() - startDate.getTime(), 0);
+  const progress = totalDuration > 0
+    ? Math.min(100, Math.max(0, (elapsed / totalDuration) * 100))
+    : 100;
 
   return (
     <section
@@ -87,12 +90,12 @@ export function CountdownTimer({
     >
       <header className="flex flex-col gap-1">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-caramel-500">
-          Countdown to March 31, 2026
+          Countdown to November 11, 2026
         </span>
         <h2 id="countdown-heading" className="text-3xl font-semibold text-foreground">
           {parts.total > 0 ? "Time Remaining" : "Target Date Achieved!"}
         </h2>
-        <p className="text-sm text-taupe-500 dark:text-cream-300/80">
+        <p className="text-sm text-taupe-500 dark:text-cream-100">
           Current time (WIB):{" "}
           <span className="font-medium text-caramel-600 dark:text-caramel-400">
             {mounted ? formatDateInTimezone(now, TIMEZONE) : "Syncing time..."}
@@ -105,17 +108,17 @@ export function CountdownTimer({
             key={segment.label}
             className="flex flex-col items-center rounded-2xl border border-white/30 bg-white/60 px-3 py-4 text-center shadow-sm dark:border-white/10 dark:bg-[#2f241f]/80"
           >
-            <span className="text-2xl font-bold text-caramel-600 dark:text-cream-200">
+            <span className="text-2xl font-bold text-caramel-600 dark:text-cream-100">
               {mounted ? segment.value.toString().padStart(2, "0") : "--"}
             </span>
-            <span className="text-xs uppercase tracking-wide text-taupe-500 dark:text-cream-300/80">
+            <span className="text-xs uppercase tracking-wide text-taupe-500 dark:text-cream-100">
               {segment.label}
             </span>
           </div>
         ))}
       </div>
       <div>
-        <div className="mb-2 flex items-center justify-between text-xs text-taupe-500 dark:text-taupe-300">
+        <div className="mb-2 flex items-center justify-between text-xs text-taupe-500 dark:text-cream-100">
           <span>Progress</span>
           <span>{mounted ? `${progress.toFixed(1)}%` : "Syncing…"}</span>
         </div>

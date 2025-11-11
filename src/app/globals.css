@@ -23,10 +23,11 @@
 }
 
 [data-theme="dark"] {
-  --background: #1b1714;
-  --foreground: #f2e7db;
-  --cream-50: #221b17;
-  --cream-100: #2a211d;
+  --background: #100d0c;
+  --foreground: #fffaf3;
+  /* Make cream variables bright in dark mode for higher contrast */
+  --cream-50: #fffaf3;
+  --cream-100: #fff4e6;
   --caramel-100: #3a2a23;
   --caramel-200: #614236;
   --caramel-300: #915e45;

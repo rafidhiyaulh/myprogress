@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "My Progress",
   description:
-    "Real-time countdown, daily progress tracker, and study map towards March 31, 2026.",
+    "Real-time countdown, daily progress tracker, and study map towards November 11, 2026.",
 };
 
 export default function RootLayout({
