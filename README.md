@@ -2,7 +2,7 @@
 
 My Progress is a personal dashboard for tracking my own development progress. It's built to help me log daily wins, stay focused on long-term goals with a visible countdown, and visualize milestone progress.
 
-## Purpose
+## The Purpose
 
 - Personal progress tracking: keep short daily notes of meaningful work.
 - Focus and context: a countdown toward a target date to help create urgency and clarity.
